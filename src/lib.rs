@@ -31,7 +31,7 @@ pub async fn test_connection() {
 
     match PgConnection::connect(&database_url).await {
         Ok(_) => time::log("✅ PostgreSQL/main", "PostgreSQL conectado!\n"),
-        Err(_) => panic!("\n\t❌ Não foi possível estabelecer conexão com PostgreSQL.\n"),
+        Err(_) => panic!("\n\t❌ Não foi possível estabelecer conexão com PostgreSQL.\n\t{}\n", database_url),
     }
 }
 
