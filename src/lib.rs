@@ -3,7 +3,7 @@ use std::env;
 use sqlx::{postgres::PgPoolOptions, Connection, PgConnection, Pool, Postgres};
 use time;
 
-pub use sqlx::{query, Error, Type, Result};
+pub use sqlx::{query, query_as, Error};
 
 const FILE_NAME: &str = "💾 PostgreSQL/main";
 
