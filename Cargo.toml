@@ -1,9 +1,9 @@
 [package]
 name = "postgresql_connection"
-version = "0.1.9"
+version = "0.1.10"
 edition = "2021"
 
 [dependencies]
-time = { git = "https://github.com/jeffersoncbd/time.git" }
+logger = { git = "https://github.com/jeffersoncbd/logger.git" }
 dotenvy = "0.15.7"
 sqlx = { version = "0.8.3", features = ["postgres", "macros", "runtime-tokio-native-tls", "time"] }

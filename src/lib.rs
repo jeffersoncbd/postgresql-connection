@@ -1,14 +1,14 @@
 use std::env;
 
 use sqlx::{postgres::PgPoolOptions, Connection, PgConnection, Pool, Postgres};
-use time;
+use logger;
 
 pub use sqlx::{query, query_as, Error, sqlx_macros};
 
 const FILE_NAME: &str = "💾 PostgreSQL/main";
 
 fn get_database_url() -> String {
-    time::log(
+    logger::log(
         FILE_NAME,
         "Recuperando valor da variável \"DATABASE_URL\"...",
     );
@@ -18,7 +18,7 @@ fn get_database_url() -> String {
             "Atenção! erro ao tentar carregar arquivo .env!",
             error.to_string()
         );
-        time::log("🟡 PostgreSQL/main", &message);
+        logger::log("🟡 PostgreSQL/main", &message);
     }
     env::var("DATABASE_URL")
         .expect("\n\t❌ A variável de ambiente \"DATABASE_URL\" não foi definida!\n\n")
@@ -26,13 +26,13 @@ fn get_database_url() -> String {
 
 pub async fn test_connection() {
     let database_url = get_database_url();
-    time::log(
+    logger::log(
         FILE_NAME,
         "Variável carregada, iniciando teste de conexão com PostgreSQL...",
     );
 
     match PgConnection::connect(&database_url).await {
-        Ok(_) => time::log("✅ PostgreSQL/main", "PostgreSQL conectado!\n"),
+        Ok(_) => logger::log("✅ PostgreSQL/main", "PostgreSQL conectado!\n"),
         Err(_) => panic!("\n\t❌ Não foi possível estabelecer conexão com PostgreSQL.\n\t{}\n", database_url),
     }
 }

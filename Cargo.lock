@@ -786,6 +786,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "04cbf5b083de1c7e0222a7a51dbfdba1cbe1c6ab0b15e29fff3f6c077fd9cd9f"
 
 [[package]]
+name = "logger"
+version = "0.1.0"
+source = "git+https://github.com/jeffersoncbd/logger.git#47fb0515988356fdab3b5679e77bab5705b8de6a"
+dependencies = [
+ "chrono",
+]
+
+[[package]]
 name = "md-5"
 version = "0.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1035,11 +1043,11 @@ checksum = "953ec861398dccce10c670dfeaf3ec4911ca479e9c02154b3a215178c5f566f2"
 
 [[package]]
 name = "postgresql_connection"
-version = "0.1.9"
+version = "0.1.10"
 dependencies = [
  "dotenvy",
+ "logger",
  "sqlx",
- "time 0.1.0",
 ]
 
 [[package]]
@@ -1373,7 +1381,7 @@ dependencies = [
  "sha2",
  "smallvec",
  "thiserror",
- "time 0.3.37",
+ "time",
  "tokio",
  "tokio-stream",
  "tracing",
@@ -1457,7 +1465,7 @@ dependencies = [
  "sqlx-core",
  "stringprep",
  "thiserror",
- "time 0.3.37",
+ "time",
  "tracing",
  "whoami",
 ]
@@ -1495,7 +1503,7 @@ dependencies = [
  "sqlx-core",
  "stringprep",
  "thiserror",
- "time 0.3.37",
+ "time",
  "tracing",
  "whoami",
 ]
@@ -1519,7 +1527,7 @@ dependencies = [
  "serde",
  "serde_urlencoded",
  "sqlx-core",
- "time 0.3.37",
+ "time",
  "tracing",
  "url",
 ]
@@ -1601,14 +1609,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "time"
-version = "0.1.0"
-source = "git+https://github.com/jeffersoncbd/time.git#5f92bd96d18acb9b267499a469ee45161673d583"
-dependencies = [
- "chrono",
 ]
 
 [[package]]
