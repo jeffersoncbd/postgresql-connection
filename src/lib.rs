@@ -3,6 +3,8 @@ use std::env;
 use sqlx::{postgres::PgPoolOptions, Connection, PgConnection, Pool, Postgres};
 use time;
 
+pub use sqlx::Error;
+
 const FILE_NAME: &str = "💾 PostgreSQL/main";
 
 fn get_database_url() -> String {
