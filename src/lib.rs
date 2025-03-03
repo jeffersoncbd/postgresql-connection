@@ -38,12 +38,12 @@ pub async fn test_connection() {
 }
 
 pub async fn connect() -> Result<PgConnection, sqlx::Error> {
-    let database_url = get_database_url();
+    let database_url = env::var("DATABASE_URL").unwrap();
     PgConnection::connect(&database_url).await
 }
 
 pub async fn open_pool() -> Result<Pool<Postgres>, sqlx::Error> {
-    let database_url = get_database_url();
+    let database_url = env::var("DATABASE_URL").unwrap();
 
     PgPoolOptions::new()
         .max_connections(5)

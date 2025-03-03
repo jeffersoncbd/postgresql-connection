@@ -1043,7 +1043,7 @@ checksum = "953ec861398dccce10c670dfeaf3ec4911ca479e9c02154b3a215178c5f566f2"
 
 [[package]]
 name = "postgresql_connection"
-version = "0.1.10"
+version = "1.0.0"
 dependencies = [
  "dotenvy",
  "logger",
